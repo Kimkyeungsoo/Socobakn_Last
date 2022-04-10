@@ -42,6 +42,7 @@ void RenderMap()
 	SetConsoleCursorPosition(s_consoleHandle, initialPos);
 	// 커서를 숨긴후에
 	SetConsoleCursorInfo(s_consoleHandle, &info);
+
 	// 맵을 출력
 	for (size_t i = 0; i < MAP_SIZE; i++)
 	{
@@ -53,7 +54,7 @@ void RenderMap()
 	clear();
 }
 
-void SetKeyMessage(int32_t keyCode)
+void SetMessage(const char massage[24])
 {
-	sprintf_s(s_map[0], sizeof(s_map[0]), "%c키가 눌림", keyCode);
+	strcpy_s(s_map[0], MAP_SIZE, massage);
 }

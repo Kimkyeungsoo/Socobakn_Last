@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "Renderer.h"
 #include "Input.h"
+#include "Timer.h"
 
 bool Initialize()
 {
@@ -9,6 +10,9 @@ bool Initialize()
 	{
 		return false;
 	}
+
+	InitializeTimer();
+
 	return true;
 }
 
@@ -19,22 +23,7 @@ void processInput()
 
 void update()
 {
-	if (GetButton(KEYCODE_W))
-	{
-		SetKeyMessage(KEYCODE_W);
-	}
-	else if (GetButton(KEYCODE_A))
-	{
-		SetKeyMessage(KEYCODE_A);
-	}
-	else if (GetButton(KEYCODE_S))
-	{
-		SetKeyMessage(KEYCODE_S);
-	}
-	else if (GetButton(KEYCODE_D))
-	{
-		SetKeyMessage(KEYCODE_D);
-	}
+	
 }
 
 void render()
@@ -51,6 +40,7 @@ int32_t Run()
 	// Game Loop의 전체를 Frame이라고 부른다.
 	while (true)
 	{
+		UpdateTimer();
 		// 입력 처리
 		processInput();
 		// 업데이트
